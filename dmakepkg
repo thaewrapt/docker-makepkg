@@ -21,6 +21,7 @@ usage() {
 CACHE=''
 CONF=''
 MAKEPKG=''
+docker_image='makepkg:latest'
 
 while getopts ":hx" OPTION
 do
@@ -28,7 +29,7 @@ do
 		h)
 			usage
 			echo '---------------------------------------'
-			docker run --rm --name=$name justin8/makepkg -h
+			docker run --rm --name=$name "${docker_image}" -h
 			exit 0
 			;;
 		x)
@@ -82,7 +83,7 @@ docker run --name "$name" \
 	   $PKGDEST \
 	   $SRCPKGDEST \
 	   $LOGDEST \
-	   justin8/makepkg -u "$EUID" -g "$(id -g $EUID)" "$@"
+     ${docker_image} -u "$EUID" -g "$(id -g $EUID)" "$@"
 rc=$?
 
 exit $rc
