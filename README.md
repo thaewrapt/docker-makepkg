@@ -1,5 +1,4 @@
 #Docker makepkg#
-[![Build Status](https://jenkins.dray.be/buildStatus/icon?job=docker_makepkg)](https://jenkins.dray.be/job/docker_makepkg)
 
 This is a docker image for building Arch Linux packages in a clean container.
 
